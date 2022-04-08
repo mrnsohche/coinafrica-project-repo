@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - echo "installing coinafrica.net"
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo "we are in the build block"
+      - echo "we will run some test"
+      - grep -Fq "Welcome" index.html
+      - grep -Fq "404 Error" 404.html
+  post_build:
+    commands:
+      - echo "we are in the post build phase"
+      - echo Build completed on `date`
